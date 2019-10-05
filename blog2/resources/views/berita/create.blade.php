@@ -18,7 +18,7 @@
 </div>
 @endsection
 
-@section('script')
+@section('scripts')
 <script src="https://cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 
 <script>

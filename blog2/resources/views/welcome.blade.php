@@ -69,10 +69,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
-                        <a href="{!! route('kategori_artikel.index') !!}">Kategori Artikel</a>
-                        <a href="{!! route('kategori_berita.index') !!}">Kategori Berita</a>
-                        <a href="{!! route('kategori_galeri.index') !!}">Kategori Galeri</a>
-                        <a href="{!! route('kategori_pengumuman.index') !!}">Kategori Pengumuman</a>
+                        
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
