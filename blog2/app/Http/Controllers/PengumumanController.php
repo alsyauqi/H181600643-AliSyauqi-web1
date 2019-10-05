@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pengumuman;
+use App\KategoriPengumuman;
 
 class PengumumanController extends Controller
 {
     public function index(){
         //Eloquent => ORM (Object Relational Mapping)
-        $listPengumuman=Pengumuman::all(); //select * from kategori_artikel
+        $listPengumuman=pengumuman::all(); //select * from kategori_pengumuman
 
         //blade
         return view('pengumuman.index',compact('listPengumuman'));
@@ -19,14 +20,15 @@ class PengumumanController extends Controller
     public function show($id){
         //Eloquent
         //$kategoriArtikel=KategoriArtikel::where('id',$id)->first();//select * from kategori_artikel where id=$id limit 1
-        $Pengumuman=Pengumuman::find($id);
+        $Pengumuman=pengumuman::find($id);
 
         return view('pengumuman.show',compact('Pengumuman'));
     }
 
     public function create(){
-        $Pengumuman=Pengumuman::pluck('nama','id');
-        return view( 'pengumuman.create');
+
+        $kategoriPengumuman=KategoriPengumuman::pluck('nama','id');
+        return view( 'pengumuman.create',compact('kategoriPengumuman'));
     }
     
     public function store(Request $request){

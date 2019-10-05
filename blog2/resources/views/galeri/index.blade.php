@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">List Artikel</div>
+                <div class="card-header">List Galeri</div>
 
                 <div class="card-body">
                 <table border="1">
@@ -18,7 +18,7 @@
                          <td>Aksi</td>
                      </tr>
 
-                     @foreach($listArtikel as $item)
+                     @foreach($listGaleri as $item)
 
                     <tr>
                         <td>{!! $item->id !!}</td>
@@ -27,7 +27,7 @@
                         <td>{!! $item->users_id !!}</td>
                         <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
                         <td>
-                            <a href="{!! route('artikel.show',[$item->id]) !!}"class="btn btn-sm btn-success">
+                            <a href="{!! route('galeri.show',[$item->id]) !!}"class="btn btn-sm btn-success">
                             Lihat
                             </a>
                         </td>
@@ -36,7 +36,7 @@
                      @endforeach
     
                 </table>
-                <a  href="{!! route('artikel.create') !!}" class="btn btn-primary">
+                <a  href="{!! route('galeri.create') !!}" class="btn btn-primary">
                                     {{ __('Tambah Data') }}
                                 </a>
                 </div>

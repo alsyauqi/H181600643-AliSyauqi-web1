@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KategoriArtikel;
 
-class KategoriArtikelController extends Controller
+class kategoriArtikelController extends Controller
 {
     public function index(){
         //Eloquent => ORM (Object Relational Mapping)
-        $listKategoriArtikel=KategoriArtikel::all(); //select * from kategori_artikel
+        $listKategoriArtikel=KategoriArtikel::all(); //select * from kategori_Artikel
 
         //blade
         return view('kategori_artikel.index',compact('listKategoriArtikel'));
@@ -18,12 +18,11 @@ class KategoriArtikelController extends Controller
 
     public function show($id){
         //Eloquent
-        //$kategoriArtikel=KategoriArtikel::where('id',$id)->first();//select * from kategori_artikel where id=$id limit 1
+        //$kategoriArtikel=KategoriArtikel::where('id',$id)->first();//select * from kategori_Artikel where id=$id limit 1
         $kategoriArtikel=KategoriArtikel::find($id);
 
         return view('kategori_artikel.show',compact('kategoriArtikel'));
     }
-
     public function create(){
         return view( 'kategori_artikel.create');
     }
@@ -36,3 +35,5 @@ class KategoriArtikelController extends Controller
         return redirect(route('kategori_artikel.index'));
     }
 }
+
+ 

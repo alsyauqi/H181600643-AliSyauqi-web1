@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\kategoriBerita;
+use App\KategoriBerita;
 
 class kategoriBeritaController extends Controller
 {

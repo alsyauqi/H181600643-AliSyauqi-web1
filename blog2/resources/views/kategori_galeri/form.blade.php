@@ -22,7 +22,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Simpan Data') }}
                                 </button>
-                                <a  href="{!! route('kategori_berita.index') !!}" class="btn btn-danger">
+                                <a  href="{!! route('kategori_galeri.index') !!}" class="btn btn-danger">
                                     {{ __('Batal') }}
                                 </a>
               
