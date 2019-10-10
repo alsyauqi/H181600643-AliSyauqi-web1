@@ -19,7 +19,7 @@ class BeritaController extends Controller
 
     public function show($id){
         //Eloquent
-        //$kategoriBerita=KategoriArtikel::where('id',$id)->first();//select * from kategori_artikel where id=$id limit 1
+        //$kategoriBerita=KategoriBerita::where('id',$id)->first();//select * from kategori_berita where id=$id limit 1
         $Berita=berita::find($id);
 
         return view('berita.show',compact('Berita'));
@@ -37,5 +37,28 @@ class BeritaController extends Controller
         Berita::create($input);
 
         return redirect(route('berita.index'));
+    }
+    public function edit($id){
+        $Berita=berita::find($id); 
+        $kategoriBerita=KategoriBerita::pluck('nama','id');
+
+
+        if (empty($Berita)){
+            return redirect(route('home'));
+        }
+
+        return view('berita.edit',compact('Berita','kategoriBerita'));
+    }
+    public function update($id,Request $request){
+        $Berita=berita::find($id); 
+        $input= $request->all();
+
+        if (empty($Berita)){
+            return redirect(route('berita.index'));
+        }
+
+        $Berita->update($input);
+
+        return redirect (route('berita.index'));
     }
 }

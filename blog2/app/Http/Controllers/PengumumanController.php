@@ -19,7 +19,7 @@ class PengumumanController extends Controller
 
     public function show($id){
         //Eloquent
-        //$kategoriArtikel=KategoriArtikel::where('id',$id)->first();//select * from kategori_artikel where id=$id limit 1
+        //$kategoriPengumuman=KategoriPengumuman::where('id',$id)->first();//select * from kategori_pengumuman where id=$id limit 1
         $Pengumuman=pengumuman::find($id);
 
         return view('pengumuman.show',compact('Pengumuman'));
@@ -37,5 +37,27 @@ class PengumumanController extends Controller
         Pengumuman::create($input);
 
         return redirect(route('pengumuman.index'));
+    }
+    public function edit($id){
+        $Pengumuman=pengumuman::find($id);
+        $kategoriPengumuman=KategoriPengumuman::pluck('nama','id');
+        
+        if (empty($Pengumuman)){
+            return redirect(route('pengumuman.index'));
+        }
+
+        return view('pengumuman.edit',compact('Pengumuman','kategoriPengumuman'));
+    }
+    public function update($id,Request $request){
+        $Pengumuman=pengumuman::find($id); 
+        $input= $request->all();
+
+        if (empty($Pengumuman)){
+            return redirect(route('pengumuman.index'));
+        }
+
+        $Pengumuman->update($input);
+
+        return redirect (route('pengumuman.index'));
     }
 }

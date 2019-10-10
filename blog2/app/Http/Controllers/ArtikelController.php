@@ -22,7 +22,7 @@ class ArtikelController extends Controller
         //$kategoriArtikel=KategoriArtikel::where('id',$id)->first();//select * from kategori_artikel where id=$id limit 1
         $Artikel=artikel::find($id);
 
-        return view('artikel.show',compact('artikel'));
+        return view('artikel.show',compact('Artikel'));
     }
 
     public function create(){
@@ -38,4 +38,29 @@ class ArtikelController extends Controller
 
         return redirect(route('artikel.index'));
     }
+    public function edit($id){
+        $Artikel=artikel::find($id); 
+        $kategoriArtikel=KategoriArtikel::pluck('nama','id');
+
+
+        if (empty($Artikel)){
+            return redirect(route('home'));
+        }
+
+        return view('artikel.edit',compact('Artikel','kategoriArtikel'));
+    }
+    public function update($id,Request $request){
+        $Artikel=artikel::find($id); 
+        $input= $request->all();
+
+        if (empty($Artikel)){
+            return redirect(route('artikel.index'));
+        }
+
+        $Artikel->update($input);
+
+        return redirect (route('artikel.index'));
+    }
 }
+
+ 
