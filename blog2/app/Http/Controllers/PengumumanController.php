@@ -60,4 +60,13 @@ class PengumumanController extends Controller
 
         return redirect (route('pengumuman.index'));
     }
+    public function destroy($id){
+        $Pengumuman=pengumuman::find($id); 
+
+        if (empty($Pengumuman)){
+            return redirect(route('home'));
+        }
+        $Pengumuman->delete();
+        return redirect (route('pengumuman.index'));
+    }
 }

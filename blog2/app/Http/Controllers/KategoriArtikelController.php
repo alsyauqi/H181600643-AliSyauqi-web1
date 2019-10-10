@@ -60,6 +60,15 @@ class kategoriArtikelController extends Controller
 
         return redirect (route('kategori_artikel.index'));
     }
+    public function destroy($id){
+        $kategoriArtikel=KategoriArtikel::find($id); 
+
+        if (empty($kategoriArtikel)){
+            return redirect(route('home'));
+        }
+        $kategoriArtikel->delete();
+        return redirect (route('kategori_artikel.index'));
+    }
 }
 
  

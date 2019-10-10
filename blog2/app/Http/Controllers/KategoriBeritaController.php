@@ -59,6 +59,15 @@ class kategoriBeritaController extends Controller
 
         return redirect (route('kategori_berita.index'));
     }
+    public function destroy($id){
+        $kategoriBerita=KategoriBerita::find($id); 
+
+        if (empty($kategoriBerita)){
+            return redirect(route('home'));
+        }
+        $kategoriBerita->delete();
+        return redirect (route('kategori_berita.index'));
+    }
 }
 
  
