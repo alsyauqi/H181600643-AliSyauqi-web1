@@ -32,12 +32,20 @@ class BeritaController extends Controller
     }
     
     public function store(Request $request){
-        $input= $request->all();
+        $input= $request->except('path');
+    
+            $berita=Berita::create($input);
 
-        Berita::create($input);
-
-        return redirect(route('berita.index'));
-    }
+            if ($request->has ('path')){
+                $file=$request->file('path');
+                $filename=$berita->id.'.'.$file->getClientOriginalExtension();
+                $path=$request->path->storeAs('public/galeri',$filename,'local');
+                $berita->path="storage".substr($path,strpos($path,'/'));
+                $berita->save();
+            }
+    
+            return redirect(route('berita.index'));
+        }
     public function edit($id){
         $Berita=berita::find($id); 
         $kategoriBerita=KategoriBerita::pluck('nama','id');

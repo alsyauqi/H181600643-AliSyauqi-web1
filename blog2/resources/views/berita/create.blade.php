@@ -8,7 +8,7 @@
                 <div class="card-header">Tambah Berita </div>
 
                 <div class="card-body">
-                {!! Form::open(['route' => 'berita.store', 'method' => 'post']) !!}
+                {!! Form::open(['route' => 'berita.store','files'=>true,'method' => 'post']) !!}
                         @include('berita.form')
                     {!! Form::close() !!}
                 </div>

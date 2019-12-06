@@ -13,6 +13,7 @@
                          <td>ID</td>
                          <td >judul</td>
                          <td >isi</td>
+                         <td >Path</td>
                          <td>Users id</td>
                          <td>Create</td>
                          <td>Update</td>
@@ -25,6 +26,7 @@
                         <td>{!! $item->id !!}</td>
                         <td>{!! $item->judul !!}</td>
                         <td>{!! $item->isi !!}</td>
+                        <td><img src="{!! asset($item->path) !!}"width="200px"></td>
                         <td>{!! $item->users_id !!}</td>
                         <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
                         <td>{!! $item->updated_at->format('d/m/Y H:i:s') !!}</td>

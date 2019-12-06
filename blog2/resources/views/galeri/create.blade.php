@@ -8,8 +8,8 @@
                 <div class="card-header">Tambah Galeri</div>
 
                     <div class="card-body">
-                    {!! Form::open(['route' => 'berita.store', 'method' => 'post']) !!}
-                        @include('berita.form')
+                    {!! Form::open(['route' => 'galeri.store','files'=>true, 'method' => 'post']) !!}
+                        @include('galeri.form')
                     {!! Form::close() !!}
 
 
